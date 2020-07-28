@@ -1,4 +1,4 @@
-var Fishka = (function () {
+var Fishka = /** @class */ (function () {
     function Fishka(num, posX, posY, pyatnashki) {
         var _this = this;
         this.num = num;
@@ -13,13 +13,13 @@ var Fishka = (function () {
         pyatnashki.parentEl.appendChild(this.el);
     }
     Fishka.prototype.onclick = function (ev) {
+        var _a, _b;
         if ((this.posX == this.pyatnashki.pustoX && (this.posY == this.pyatnashki.pustoY + 1 || this.posY == this.pyatnashki.pustoY - 1)) || (this.posY == this.pyatnashki.pustoY && (this.posX == this.pyatnashki.pustoX + 1 || this.posX == this.pyatnashki.pustoX - 1))) {
             _a = [this.pyatnashki.pustoX, this.posX], this.posX = _a[0], this.pyatnashki.pustoX = _a[1];
             _b = [this.pyatnashki.pustoY, this.posY], this.posY = _b[0], this.pyatnashki.pustoY = _b[1];
             this.show();
             this.pyatnashki.checkWin();
         }
-        var _a, _b;
     };
     ;
     Fishka.prototype.show = function () {
@@ -28,7 +28,7 @@ var Fishka = (function () {
     };
     return Fishka;
 }());
-var Pyatnashki = (function () {
+var Pyatnashki = /** @class */ (function () {
     function Pyatnashki(id, colX, colY) {
         if (colX === void 0) { colX = 4; }
         if (colY === void 0) { colY = 4; }
@@ -60,7 +60,9 @@ var Pyatnashki = (function () {
             if (this.fishki[i].num != this.fishki[i].posX + this.fishki[i].posY * this.colX + 1)
                 return;
         }
-        alert('!!!!!! Поздравляю, Вы собрали головоломку !!!!!!!!!!!');
+        setTimeout(function () {
+            alert('!!!!!! Поздравляю, Вы собрали головоломку !!!!!!!!!!!');
+        }, 200);
     };
     return Pyatnashki;
 }());
